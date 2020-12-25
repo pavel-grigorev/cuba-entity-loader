@@ -4,15 +4,33 @@ This is an add-on for the CUBA Platform. It provides the `EntityLoader` helper b
 
 # Motivation
 
-When building screen controllers or services I would like to have all queries organized in some way. 
+When building screen controllers or services I would like to have all queries organized in some way.
 
 # Adding to your project
 
+Compatible with CUBA 7.1.0 or newer.
+
 Coordinates: `org.thepavel.cubaentityloader:cubaentityloader-global:1.0.1`
 
-See [Installing Add-on by Coordinates](https://doc.cuba-platform.com/studio/#addons_installing_by_coordinates)
+1. In the `build.gradle` file specify the coordinates in the dependencies section as follows:
 
-Compatible with CUBA 7.1.0 or newer.
+```
+dependencies {
+    appComponent("com.haulmont.cuba:cuba-global:$cubaVersion")
+    appComponent("org.thepavel.cubaentityloader:cubaentityloader-global:1.0.1")
+}
+```
+
+1. Locate two `web.xml` files (one in the core and one in the web) and add `org.thepavel.cubaentityloader` to the appComponents parameter in each file:
+
+```
+<context-param>
+    <param-name>appComponents</param-name>
+    <param-value>com.haulmont.cuba org.thepavel.cubaentityloader</param-value>
+</context-param>
+```
+
+1. Run CUBA / Re-import gradle project
 
 # Basic example
 
