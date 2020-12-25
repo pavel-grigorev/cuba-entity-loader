@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<app-component xmlns="http://schemas.haulmont.com/cuba/app-component.xsd"
+               dependsOn="com.haulmont.cuba">
+
+    <module name="global" blocks="*">
+        <artifact name="cubaentityloader-global" appJar="true"/>
+
+        <property name="cuba.persistenceConfig" value="+org/thepavel/cubaentityloader/persistence.xml"/>
+        <property name="cuba.metadataConfig" value="+org/thepavel/cubaentityloader/metadata.xml"/>
+        <property name="cuba.viewsConfig" value="+org/thepavel/cubaentityloader/views.xml"/>
+    </module>
+    <module name="core" dependsOn="global" blocks="core">
+        <artifact name="cubaentityloader-core" appJar="true"/>
+
+        <property name="cuba.springContextConfig" value="+org/thepavel/cubaentityloader/spring.xml"/>
+        <property name="cuba.mainMessagePack" value="+org.thepavel.cubaentityloader.core"/>
+    </module>
+    <module name="web" dependsOn="global" blocks="web">
+        <artifact name="cubaentityloader-web" appJar="true"/>
+        <artifact name="cubaentityloader-web" classifier="web" ext="zip" configuration="webcontent"/>
+
+        <property name="cuba.springContextConfig" value="+org/thepavel/cubaentityloader/web-spring.xml"/>
+        <property name="cuba.dispatcherSpringContextConfig"
+                  value="+org/thepavel/cubaentityloader/web-dispatcher-spring.xml"/>
+        <property name="cuba.windowConfig" value="+org/thepavel/cubaentityloader/web-screens.xml"/>
+        <property name="cuba.menuConfig" value="+org/thepavel/cubaentityloader/web-menu.xml"/>
+        <property name="cuba.permissionConfig" value="+org/thepavel/cubaentityloader/web-permissions.xml"/>
+        <property name="cuba.mainMessagePack" value="+org.thepavel.cubaentityloader.web"/>
+    </module>
+</app-component>
