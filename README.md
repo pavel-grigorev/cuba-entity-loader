@@ -8,7 +8,7 @@ When building screen controllers or services I would like to have all queries or
 
 # Adding to your project
 
-Coordinates: `org.thepavel.cubaentityloader:cubaentityloader-global:1.0.0`
+Coordinates: `org.thepavel.cubaentityloader:cubaentityloader-global:1.0.1`
 
 See [Installing Add-on by Coordinates](https://doc.cuba-platform.com/studio/#addons_installing_by_coordinates)
 
