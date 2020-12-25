@@ -1,3 +1,5 @@
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.thepavel.cubaentityloader/cubaentityloader-global/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.thepavel.cubaentityloader/cubaentityloader-global)
+
 # Intro
 
 This is an add-on for the CUBA Platform. It provides the `EntityLoader` helper bean. See below for the demos.
