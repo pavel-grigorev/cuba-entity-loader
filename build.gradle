@@ -56,9 +56,14 @@ configure([globalModule, coreModule, webModule]) {
         classifier = 'sources'
     }
 
+    task javadocJar(type: Jar) {
+        from javadoc
+        classifier = 'javadoc'
+    }
+
     artifacts {
-        archives sourceJar
-    } 
+        archives sourceJar, javadocJar
+    }
 }
 
 
