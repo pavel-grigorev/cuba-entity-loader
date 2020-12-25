@@ -21,7 +21,7 @@ dependencies {
 }
 ```
 
-1. Locate two `web.xml` files (one in the core and one in the web) and add `org.thepavel.cubaentityloader` to the appComponents parameter in each file:
+2. Locate two `web.xml` files (one in the core and one in the web) and add `org.thepavel.cubaentityloader` to the appComponents parameter in each file:
 
 ```
 <context-param>
@@ -30,7 +30,7 @@ dependencies {
 </context-param>
 ```
 
-1. Run CUBA / Re-import gradle project
+3. Run CUBA / Re-import gradle project
 
 # Basic example
 
