@@ -168,13 +168,13 @@ private List<JobPosition> getJobPositions() {
 
 # Complete list of methods
 
-- List<T> list();
-- List<T> page(int firstResult, int maxResults);
+- List&lt;T&gt; list();
+- List&lt;T&gt; page(int firstResult, int maxResults);
 - T one();
-- Optional<T> optional();
+- Optional&lt;T&gt; optional();
 - T one(K id);
-- Optional<T> optional(K id);
+- Optional&lt;T&gt; optional(K id);
 - long count();
-- QueryRunner<T, K> view(String view);
-- QueryRunner<T, K> param(String name, Object value);
-- QueryRunner<T, K> params(Map<String, Object> params);
+- QueryRunner&lt;T, K&gt; view(String view);
+- QueryRunner&lt;T, K&gt; param(String name, Object value);
+- QueryRunner&lt;T, K&gt; params(Map&gt;String, Object&gt; params);
