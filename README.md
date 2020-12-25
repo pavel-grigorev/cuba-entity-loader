@@ -177,4 +177,4 @@ private List<JobPosition> getJobPositions() {
 - long count();
 - QueryRunner&lt;T, K&gt; view(String view);
 - QueryRunner&lt;T, K&gt; param(String name, Object value);
-- QueryRunner&lt;T, K&gt; params(Map&gt;String, Object&gt; params);
+- QueryRunner&lt;T, K&gt; params(Map&lt;String, Object&gt; params);
