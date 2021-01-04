@@ -28,8 +28,12 @@ import java.lang.reflect.Field;
 
 @Component
 public class EntityLoaderInjector {
+  private final EntityLoaderFactory entityLoaderFactory;
+
   @Inject
-  private EntityLoaderFactory entityLoaderFactory;
+  public EntityLoaderInjector(EntityLoaderFactory entityLoaderFactory) {
+    this.entityLoaderFactory = entityLoaderFactory;
+  }
 
   public void inject(Object instance) {
     ReflectionUtils.doWithFields(

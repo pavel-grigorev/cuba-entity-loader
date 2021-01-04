@@ -23,8 +23,12 @@ import javax.inject.Inject;
 
 @Component
 public class ScreenEntityLoaderInjector implements ControllerDependencyInjector {
+  private final EntityLoaderInjector entityLoaderInjector;
+
   @Inject
-  private EntityLoaderInjector entityLoaderInjector;
+  public ScreenEntityLoaderInjector(EntityLoaderInjector entityLoaderInjector) {
+    this.entityLoaderInjector = entityLoaderInjector;
+  }
 
   @Override
   public void inject(InjectionContext injectionContext) {

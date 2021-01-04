@@ -32,12 +32,16 @@ import java.util.List;
 
 @Component
 public class EntityLoaderFactory {
+  private final DataManager dataManager;
+  private final QueryFactory queryFactory;
+  private final ParamsSuppliersFactory paramsSuppliersFactory;
+
   @Inject
-  private DataManager dataManager;
-  @Inject
-  private QueryFactory queryFactory;
-  @Inject
-  private ParamsSuppliersFactory paramsSuppliersFactory;
+  public EntityLoaderFactory(DataManager dataManager, QueryFactory queryFactory, ParamsSuppliersFactory paramsSuppliersFactory) {
+    this.dataManager = dataManager;
+    this.queryFactory = queryFactory;
+    this.paramsSuppliersFactory = paramsSuppliersFactory;
+  }
 
   public <T extends Entity<K>, K> EntityLoader<T, K> createEntityLoader(FieldContext fieldContext) {
     Field field = fieldContext.getField();
@@ -45,7 +49,7 @@ public class EntityLoaderFactory {
     DataManager dataManager = getDataManager(field);
     Class<T> entityClass = getEntityClass(field);
     String view = ViewFactory.getView(field);
-    String query = queryFactory.getQuery(field, entityClass);
+    String query = getQuery(field, entityClass);
     List<ParamsSupplier> paramsSuppliers = getParamsSuppliers(fieldContext);
 
     return new EntityLoader<>(dataManager, entityClass, view, query, paramsSuppliers);
@@ -59,6 +63,10 @@ public class EntityLoaderFactory {
   @SuppressWarnings("unchecked")
   private static <T extends Entity<K>, K> Class<T> getEntityClass(Field field) {
     return (Class<T>) ReflectionHelper.getGenericTypes(field)[0];
+  }
+
+  private String getQuery(Field field, Class<?> entityClass) {
+    return queryFactory.getQuery(field, entityClass);
   }
 
   private List<ParamsSupplier> getParamsSuppliers(FieldContext fieldContext) {

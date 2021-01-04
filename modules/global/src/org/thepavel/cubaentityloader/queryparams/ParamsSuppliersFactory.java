@@ -16,17 +16,21 @@
 
 package org.thepavel.cubaentityloader.queryparams;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.thepavel.cubaentityloader.FieldContext;
 
+import javax.inject.Inject;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
 public class ParamsSuppliersFactory {
-  @Autowired
-  private List<ParamsSupplierFactory> factories;
+  private final List<ParamsSupplierFactory> factories;
+
+  @Inject
+  public ParamsSuppliersFactory(List<ParamsSupplierFactory> factories) {
+    this.factories = factories;
+  }
 
   public List<ParamsSupplier> getParamsSuppliers(FieldContext fieldContext) {
     return factories

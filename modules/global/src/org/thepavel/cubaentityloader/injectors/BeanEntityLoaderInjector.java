@@ -24,8 +24,12 @@ import javax.inject.Inject;
 
 @Component
 public class BeanEntityLoaderInjector implements BeanPostProcessor {
+  private final EntityLoaderInjector entityLoaderInjector;
+
   @Inject
-  private EntityLoaderInjector entityLoaderInjector;
+  public BeanEntityLoaderInjector(EntityLoaderInjector entityLoaderInjector) {
+    this.entityLoaderInjector = entityLoaderInjector;
+  }
 
   @Override
   public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {

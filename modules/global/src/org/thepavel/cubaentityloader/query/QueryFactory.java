@@ -27,8 +27,12 @@ import java.lang.reflect.Field;
 public class QueryFactory {
   private static final String DEFAULT_QUERY = "select e from %s e";
 
+  private final MetadataTools metadataTools;
+
   @Inject
-  private MetadataTools metadataTools;
+  public QueryFactory(MetadataTools metadataTools) {
+    this.metadataTools = metadataTools;
+  }
 
   public String getQuery(Field field, Class<?> entityClass) {
     if (field.isAnnotationPresent(Query.class)) {
